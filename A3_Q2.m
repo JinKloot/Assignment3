@@ -1,5 +1,3 @@
-%% S3 Initialization of electron values
-
 clc
 clear all
 close all 
@@ -20,8 +18,8 @@ lArea = 100e-9;
 vt=sqrt((2*kb*Temp)/mn);        % Sim in 2D so (2*kb*Temp), 3D is (3*kb*Temp)
 
 %Electron motion 
-numElec = 100;                  %Number of simulated Electrons 
-numEPlot = 10;                  %Number of plotted Electrons 
+numElec = 1000;                  %Number of simulated Electrons.
+numEPlot = 30;                  %Number of plotted Electrons 
 dt = (lArea*wArea)/2;           %Typically 1/100 of region size
 stepsTot = 400;                 %Total amount of steps (1000 was a long simulation) 
 tTot= stepsTot*dt;              %Total Simulation time 
