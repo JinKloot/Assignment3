@@ -22,7 +22,7 @@ vt=sqrt((2*kb*Temp)/mn);        % Sim in 2D so (2*kb*Temp), 3D is (3*kb*Temp)
 numElec =30000;                  %Number of simulated Electrons 
 numEPlot = 20;                  %Number of plotted Electrons 
 dt = (lArea*wArea)/2;           %Typically 1/100 of region size
-stepsTot = 400;                 %Total amount of steps (1000 was a long simulation) 
+stepsTot = 100;                 %Total amount of steps (1000 was a long simulation) 
 tTot= stepsTot*dt;              %Total Simulation time 
 x = zeros(1,numElec);           %Inital X matrix          
 y = zeros(1,numElec);           %Inital y matrix  
@@ -222,5 +222,6 @@ yv = linspace(min(y), max(y),100);
 [X,Y] = meshgrid(xv,yv);
 eMapX=linspace(0, wArea, 201); %increase by 1 for surf
 eMapY=linspace(0, lArea, 101); %increase by 1 for surf
-EDM=histcounts2(y,x,eMapY,eMapX);
-surf(X,Y,EDM),view(45,60),title('Electron Density Map');
+EDM=histcounts2(y,x,eMapY,eMapX); 
+surf(X,Y,EDM)
+xlabel('Width(m)', 'FontSize', 10), ylabel('Length(m)', 'FontSize', 10),zlabel('Electron Density (#)', 'FontSize', 10),view(45,60),title('Electron Density Map');

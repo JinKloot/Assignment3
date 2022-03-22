@@ -24,7 +24,7 @@ lArea = 100e-9;
 numElec = 30000;                 %Number of simulated Electrons 
 numEPlot = 20;                  %Number of plotted Electrons 
 dt = (lArea*wArea)/2;             %Typically 1/100 of region size
-stepsTot = 200;                 %Total amount of steps (1000 was a long simulation) 
+stepsTot = 100;                 %Total amount of steps (1000 was a long simulation) 
 tTot= stepsTot*dt;              %Total Simulation time 
 x = zeros(1,numElec);           %Inital X matrix          
 y = zeros(1,numElec);           %Inital y matrix  
@@ -162,6 +162,7 @@ figure(2)
     ETM=griddata(x,y,allT,X,Y);
     subplot(2,1,1);
     surf(X,Y,ETM),colorbar,title("Temprature Map")
+    xlabel('Width(m)', 'FontSize', 10), ylabel('Length(m)', 'FontSize', 10),zlabel('Temp(K)', 'FontSize', 10);
     axis([0, wArea, 0 lArea]);
 
 %Electron Density Map (Use Surf now to get 3D plot over the area) 
@@ -170,5 +171,6 @@ figure(2)
     EDM=histcounts2(y,x,eMapY,eMapX);
     subplot(2,1,2)
     surf(X,Y,EDM),title('Electron Density Map');
+    xlabel('Width(m)', 'FontSize', 10), ylabel('Length(m)', 'FontSize', 10),zlabel('Density (#)', 'FontSize', 10);
     
     
